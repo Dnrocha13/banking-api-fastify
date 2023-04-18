@@ -8,6 +8,12 @@ fastify.get('/saldo', (req, res) => {
 
 });
 
+fastify.post('/depositar', (req, res) =>{
+    let valor =  Number(req.body.valor);
+    saldo = saldo +valor;
+    res.status(201).send(`valor depositado com sucesso`);
+});
+
 fastify.listen(PORT, (err) => {
     if (err) throw err;
     console.log(`servidor rodando na porta${PORT}`) 
